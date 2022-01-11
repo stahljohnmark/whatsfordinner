@@ -1,3 +1,7 @@
+var mealInput = document.getElementById("meal-input");
+var drinkInput = document.getElementById("drink-input");
+
+
 // fetching meal api
 function mealSearch(query) {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
@@ -26,5 +30,16 @@ function drinkSearch(query) {
 
 }
 
-mealSearch("beef");
-drinkSearch("vodka");
+
+
+// EventListener for meal input
+document.getElementById("meal-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    mealSearch(mealInput.value);
+});
+
+// EventListener for drink input
+document.getElementById("drink-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    drinkSearch(drinkInput.value);
+});
