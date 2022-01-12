@@ -11,7 +11,10 @@ function mealSearch(query) {
         })
         .then(function(data) {
             console.log(data);
-
+            console.log(data.meals[0].strMeal);
+            for (var i = 0; i < data.meals.length; i++) {
+                console.log(data.meals[i].strMeal);
+            }
         });
 }
 
