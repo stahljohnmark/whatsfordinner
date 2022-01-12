@@ -54,6 +54,42 @@ function mealSearch(query) {
         });
 }
 
+var createDrinkCard = function (data) {
+    // clear recipe div content
+    recipesColumn.textContent = "";
+    for (var i = 0; i < data.drinks.length; i++) {
+        var recipeTitle = data.drinks[i].strDrink;
+        var recipeImage = data.drinks[i].strDrinkThumb;
+        $(recipesColumn).append(`<div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+            <div class="card-image has-text-centered px-6">
+                <img src="${recipeImage}" alt="${recipeTitle}">
+            </div>
+            <div class="card-content">
+                <p class="title is-size-5">${recipeTitle}</p>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <a href="">View Recipe</a>
+                </p>
+            </footer>
+        </div>
+    </div>`);
+    }
+}
+
+var displayDrinkCards = function (data) {
+
+    // if there are less than 4 recipes, we want to center the cards on the screen 
+    if (data.drinks.length < 4) {
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
+    } else {
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable");
+    }
+
+    createDrinkCard(data);
+}
+
 // https://www.thecocktaildb.com/api/json/v1/1/search.php?s=whisky
 // fetching drink api
 function drinkSearch(query) {
@@ -64,7 +100,7 @@ function drinkSearch(query) {
         })
         .then(function(data) {
             console.log(data);
-
+            displayDrinkCards(data);
         });
 
 }
