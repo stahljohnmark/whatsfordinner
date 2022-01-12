@@ -15,7 +15,7 @@ var createFoodCard = function(data) {
         
             <div class="card-image has-text-centered px-6">
             <img src="${recipeImage}" alt="${recipeTitle}">
-            <div class="top-right is-size-1"><i class="far fa-star meal-star" id="meal-star"></i></div>
+            <div class="top-right is-size-1-mobile"><i class="far fa-star meal-star" id="meal-star"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
@@ -66,7 +66,7 @@ var createDrinkCard = function(data) {
         <div class="card">
             <div class="card-image has-text-centered px-6">
                 <img src="${recipeImage}" alt="${recipeTitle}">
-                <<div class="top-right is-size-1"><i class="far fa-star drink-star" id="drink-star"></i></div>
+                <<div class="top-right is-size-1-mobile"><i class="far fa-star drink-star" id="drink-star"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
