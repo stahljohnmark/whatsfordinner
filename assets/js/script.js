@@ -1,6 +1,45 @@
 var mealInput = document.getElementById("meal-input");
 var drinkInput = document.getElementById("drink-input");
+var recipesContainer = document.querySelector(".recipe-container");
+var recipesColumn = document.getElementById("recipe-column");
 
+// create card for displaying food
+var createFoodCard = function (data) {
+    // clear recipe div content
+    recipesColumn.textContent = "";
+    for (var i = 0; i < data.meals.length; i++) {
+        var recipeTitle = data.meals[i].strMeal;
+        var recipeImage = data.meals[i].strMealThumb;
+        $(recipesColumn).append(`<div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+            <div class="card-image has-text-centered px-6">
+                <img src="${recipeImage}" alt="${recipeTitle}">
+            </div>
+            <div class="card-content">
+                <p class="title is-size-5">${recipeTitle}</p>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <a href="">View Recipe</a>
+                </p>
+            </footer>
+        </div>
+    </div>`);
+    }
+}
+
+// display food recipe card with food title, image, and button to view recipe
+var displayFoodCards = function (data) {
+
+    // if there are less than 4 recipes, we want to center the cards on the screen 
+    if (data.meals.length < 4) {
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
+    } else {
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable");
+    }
+
+    createFoodCard(data);
+}
 
 // fetching meal api
 function mealSearch(query) {
@@ -11,10 +50,7 @@ function mealSearch(query) {
         })
         .then(function(data) {
             console.log(data);
-            console.log(data.meals[0].strMeal);
-            for (var i = 0; i < data.meals.length; i++) {
-                console.log(data.meals[i].strMeal);
-            }
+            displayFoodCards(data);
         });
 }
 
