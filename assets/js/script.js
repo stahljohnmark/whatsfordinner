@@ -35,7 +35,7 @@ var displayFoodCards = function (data) {
     if (data.meals.length < 4) {
         $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
     } else {
-        $(recipesColumn).addClass("columns mt-5 is-8 is-variable");
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-multiline is-centered");
     }
 
     createFoodCard(data);
@@ -84,7 +84,7 @@ var displayDrinkCards = function (data) {
     if (data.drinks.length < 4) {
         $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
     } else {
-        $(recipesColumn).addClass("columns mt-5 is-8 is-variable");
+        $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-multiline is-centered");
     }
 
     createDrinkCard(data);
