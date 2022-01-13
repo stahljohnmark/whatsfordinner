@@ -2,6 +2,20 @@ var mealInput = document.getElementById("meal-input");
 var drinkInput = document.getElementById("drink-input");
 var recipesContainer = document.querySelector(".recipe-container");
 var recipesColumn = document.getElementById("recipe-column");
+var modalBackground = document.querySelector(".modal-background");
+var modal = document.querySelector(".modal");
+
+var displayClickedRecipe = function (event) {
+    console.log("This is being called");
+    var index = $(event.target).attr("data-index");
+    console.log(index);
+    modal.classList.add("is-active");
+}
+
+var stopDisplayingRecipe = function (event) {
+    console.log("Stop displaying recipe is being called");
+    modal.classList.remove("is-active");
+}
 
 // create card for displaying food
 var createFoodCard = function (data) {
@@ -20,7 +34,7 @@ var createFoodCard = function (data) {
             </div>
             <footer class="card-footer">
                 <p class="card-footer-item">
-                    <a href="">View Recipe</a>
+                    <button class="button is-link is-light has-background-white recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
                 </p>
             </footer>
         </div>
@@ -105,8 +119,6 @@ function drinkSearch(query) {
 
 }
 
-
-
 // EventListener for meal input
 document.getElementById("meal-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -118,3 +130,9 @@ document.getElementById("drink-form").addEventListener("submit", function(event)
     event.preventDefault();
     drinkSearch(drinkInput.value);
 });
+
+// when view recipe button is clicked it will call the displayClickedRecipe function to display the modal
+$(document).on("click", ".recipe-button", displayClickedRecipe);
+
+// when background is clicked stop displaying modal
+$(document).on("click", ".modal-background", stopDisplayingRecipe);
