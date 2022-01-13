@@ -251,7 +251,7 @@ var stopDisplayingRecipe = function (event) {
 }
 
 // create card for displaying food
-var createFoodCard = function (data) {
+var createFoodCard = function(data) {
     // clear recipe div content
     recipesColumn.textContent = "";
     for (var i = 0; i < data.meals.length; i++) {
@@ -259,8 +259,10 @@ var createFoodCard = function (data) {
         var recipeImage = data.meals[i].strMealThumb;
         $(recipesColumn).append(`<div class="column is-4-tablet is-3-desktop">
         <div class="card">
+        
             <div class="card-image has-text-centered px-6">
-                <img src="${recipeImage}" alt="${recipeTitle}">
+            <img src="${recipeImage}" alt="${recipeTitle}">
+            <div class="top-right is-size-1-mobile"><i class="far fa-star meal-star" id="meal-star"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
@@ -276,7 +278,7 @@ var createFoodCard = function (data) {
 }
 
 // display food recipe card with food title, image, and button to view recipe
-var displayFoodCards = function (data) {
+var displayFoodCards = function(data) {
 
     // if there are less than 4 recipes, we want to center the cards on the screen 
     if (data.meals.length < 4) {
@@ -301,7 +303,7 @@ function mealSearch(query) {
         });
 }
 
-var createDrinkCard = function (data) {
+var createDrinkCard = function(data) {
     // clear recipe div content
     recipesColumn.textContent = "";
     for (var i = 0; i < data.drinks.length; i++) {
@@ -311,6 +313,7 @@ var createDrinkCard = function (data) {
         <div class="card">
             <div class="card-image has-text-centered px-6">
                 <img src="${recipeImage}" alt="${recipeTitle}">
+                <div class="top-right is-size-1-mobile"><i class="far fa-star drink-star" id="drink-star"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
@@ -325,7 +328,7 @@ var createDrinkCard = function (data) {
     }
 }
 
-var displayDrinkCards = function (data) {
+var displayDrinkCards = function(data) {
 
     // if there are less than 4 recipes, we want to center the cards on the screen 
     if (data.drinks.length < 4) {
@@ -337,7 +340,6 @@ var displayDrinkCards = function (data) {
     createDrinkCard(data);
 }
 
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=whisky
 // fetching drink api
 function drinkSearch(query) {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`;
@@ -356,12 +358,16 @@ function drinkSearch(query) {
 document.getElementById("meal-form").addEventListener("submit", function(event) {
     event.preventDefault();
     mealSearch(mealInput.value);
+    mealStar()
+
 });
 
 // EventListener for drink input
 document.getElementById("drink-form").addEventListener("submit", function(event) {
     event.preventDefault();
     drinkSearch(drinkInput.value);
+    drinkStar();
+
 });
 
 // when view recipe button is clicked it will call the displayMealRecipe function to display the modal
@@ -373,3 +379,42 @@ $(document).on("click", ".modal-background", stopDisplayingRecipe);
 
 // when x is clicked stop displaying modal
 $(document).on("click", ".delete", stopDisplayingRecipe);
+
+// drink save start
+function drinkStar() {
+    var drinkStarInvterval = setInterval(function() {
+
+        if ($("#drink-star").length) {
+
+            $(".drink-star").on("click", function() {
+
+                $(this).removeClass("far fa-star").addClass("fas fa-star save");
+            });
+            $(".drink-star").on("dblclick", function() {
+                $(this).removeClass("fas fa-star save").addClass("far fa-star");
+            });
+            clearInterval(drinkStarInvterval);
+        }
+    }, 1000);
+
+}
+
+// meal save start
+function mealStar() {
+    var mealStarInvterval = setInterval(function() {
+
+        if ($("#meal-star").length) {
+
+            $(".meal-star").on("click", function() {
+
+                $(this).removeClass("far fa-star").addClass("fas fa-star save");
+            });
+            $(".meal-star").on("dblclick", function() {
+                $(this).removeClass("fas fa-star save").addClass("far fa-star");
+            });
+            clearInterval(mealStarInvterval);
+        }
+    }, 1000);
+
+}
+
