@@ -5,16 +5,17 @@ var recipesColumn = document.getElementById("recipe-column");
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
+// Creates the modal to display the recipe information
 var createRecipeModal = function (data) {
 
-    for (var i = 0; i < data.meals.length; i++) {
-        var recipeTitle = data.meals[i].strMeal;
-        var instructions = data.meals[i].strInstructions;
+        var recipeTitle = data.meals[0].strMeal;
+        var instructions = data.meals[0].strInstructions;
         $(".recipe-title").text(recipeTitle);
-    }
+
     modal.classList.add("is-active");
 }
 
+// Makes a call the the api using the id of the recipe that was clicked to show that recipes info
 var displayClickedRecipe = function (event) {
     event.preventDefault();
     console.log("This is being called");
@@ -25,7 +26,7 @@ var displayClickedRecipe = function (event) {
     .then(function(response) {
         if(response.ok) {
             response.json().then(function (data) {
-                console.log(data.meals[0].strIngredient1);
+                console.log(data.meals[0]);
                 createRecipeModal(data);
             });
         } else {
