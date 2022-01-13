@@ -5,6 +5,7 @@ var recipesColumn = document.getElementById("recipe-column");
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
+
 // The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
 // strings and puts them into an array of objects so we can iterate through them to display on the page.
 var createMealIngredientsList = function (data) {
@@ -90,7 +91,9 @@ var createMealIngredientsList = function (data) {
             amount: data.meals[0].strMeasure20
         },
     ];
-
+    // clear the ingredient list 
+    $(".ingredient-list").text("");
+    // populate the ingredient list
     for (var i = 0; i < ingredients.length; i++) {
         // Not all of the recipes have 20 ingredients.  To ensure empty strings are not being added to the list of ingredients
         // we have this check in place that makes sure those properties aren't empty
@@ -164,7 +167,9 @@ var createDrinkIngredientsList = function (data) {
             amount: data.drinks[0].strMeasure15
         },
     ];
-
+    // clear the ingredient list
+    $(".ingredient-list").text("");
+    // populate the ingredient list
     for (var i = 0; i < ingredients.length; i++) {
         if (ingredients[i].ingredient && ingredients[i].amount) {
             $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
@@ -175,9 +180,6 @@ var createDrinkIngredientsList = function (data) {
 
 // Creates the modal to display the recipe information
 var createMealModal = function (data) {
-    $(".modal-card").textContent = "";
-    $(".content").textContent = "";
-    $(".ingredient-list").textContent = "";
     var recipeTitle = data.meals[0].strMeal;
     var instructions = data.meals[0].strInstructions;
     var recipeImg = data.meals[0].strMealThumb;
@@ -212,9 +214,6 @@ var displayMealRecipe = function (event) {
 };
 
 var createDrinkModal = function (data) {
-    $(".modal-card").textContent = "";
-    $(".content").textContent = "";
-    $(".ingredient-list").textContent = "";
     var drinkTitle = data.drinks[0].strDrink;
     var instructions = data.drinks[0].strInstructions;
     var recipeImg = data.drinks[0].strDrinkThumb;
