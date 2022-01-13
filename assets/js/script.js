@@ -5,6 +5,8 @@ var recipesColumn = document.getElementById("recipe-column");
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
+// The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
+// strings and puts them into an array of objects so we can iterate through them to display on the page.
 var createIngredientsList = function (data) {
     var ingredients = [
         {
@@ -90,6 +92,8 @@ var createIngredientsList = function (data) {
     ];
 
     for (var i = 0; i < ingredients.length; i++) {
+        // Not all of the recipes have 20 ingredients.  To ensure empty strings are not being added to the list of ingredients
+        // we have this check in place that makes sure those properties aren't empty
         if (ingredients[i].ingredient && ingredients[i].amount) {
             $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
         }
@@ -113,9 +117,7 @@ var createRecipeModal = function (data) {
 // Makes a call the the api using the id of the recipe that was clicked to show that recipes info
 var displayClickedRecipe = function (event) {
     event.preventDefault();
-    console.log("This is being called");
     var index = $(event.target).attr("data-index");
-    console.log(index);
 
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${index}`)
     .then(function(response) {
@@ -125,17 +127,39 @@ var displayClickedRecipe = function (event) {
                 createRecipeModal(data);
             });
         } else {
+            // To do remove console.log and display a modal here stating recipe was not found
             console.log("Recipe not found!");
         }
     })
     .catch(function (error) {
+        // To do remove console.log and display a modal stating unable to connect to The Meal Db
         console.log("Unable to connect to The Meal Db");
     });
 
 };
 
+var displayRecipeForClickedDrink = function (event) {
+    event.preventDefault();
+    var index = $(event.target).attr("data-index");
+
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${index}`)
+    .then(function(response) {
+        if(response.ok) {
+            response.json().then(function (data) {
+                console.log(data.drinks[0]);
+            });
+        } else {
+            // To do remove console.log and display a modal here stating recipe was not found
+            console.log("Recipe not found!");
+        }
+    })
+    .catch(function (error) {
+        // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
+        console.log("Unable to connect to The Cocktail Db");
+    });
+}
+
 var stopDisplayingRecipe = function (event) {
-    console.log("Stop displaying recipe is being called");
     modal.classList.remove("is-active");
 }
 
