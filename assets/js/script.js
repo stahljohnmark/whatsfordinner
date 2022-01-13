@@ -6,12 +6,13 @@ var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
 var createRecipeModal = function (data) {
-    modal.classList.add("is-active");
+
     for (var i = 0; i < data.meals.length; i++) {
         var recipeTitle = data.meals[i].strMeal;
         var instructions = data.meals[i].strInstructions;
         $(".recipe-title").text(recipeTitle);
     }
+    modal.classList.add("is-active");
 }
 
 var displayClickedRecipe = function (event) {
@@ -161,3 +162,6 @@ $(document).on("click", ".recipe-button", displayClickedRecipe);
 
 // when background is clicked stop displaying modal
 $(document).on("click", ".modal-background", stopDisplayingRecipe);
+
+// when x is clicked stop displaying modal
+$(document).on("click", ".delete", stopDisplayingRecipe);
