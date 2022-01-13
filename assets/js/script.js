@@ -8,10 +8,12 @@ var modal = document.querySelector(".modal");
 // Creates the modal to display the recipe information
 var createRecipeModal = function (data) {
 
-        var recipeTitle = data.meals[0].strMeal;
-        var instructions = data.meals[0].strInstructions;
-        $(".recipe-title").text(recipeTitle);
-
+    var recipeTitle = data.meals[0].strMeal;
+    var instructions = data.meals[0].strInstructions;
+    var recipeImg = data.meals[0].strMealThumb;
+    $(".recipe-title").text(recipeTitle);
+    $(".instructions").text(instructions);
+    $(".recipe-img").attr( { src: recipeImg, alt: recipeTitle} );
     modal.classList.add("is-active");
 }
 
