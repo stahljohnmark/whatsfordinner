@@ -5,6 +5,98 @@ var recipesColumn = document.getElementById("recipe-column");
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
+var createIngredientsList = function (data) {
+    var ingredients = [
+        {
+            ingredient: data.meals[0].strIngredient1,
+            amount: data.meals[0].strMeasure1
+        },
+        {
+            ingredient: data.meals[0].strIngredient2,
+            amount: data.meals[0].strMeasure2
+        },
+        {
+            ingredient: data.meals[0].strIngredient3,
+            amount: data.meals[0].strMeasure3
+        },
+        {
+            ingredient: data.meals[0].strIngredient4,
+            amount: data.meals[0].strMeasure4
+        },
+        {
+            ingredient: data.meals[0].strIngredient5,
+            amount: data.meals[0].strMeasure5
+        },
+        {
+            ingredient: data.meals[0].strIngredient6,
+            amount: data.meals[0].strMeasure6
+        },
+        {
+            ingredient: data.meals[0].strIngredient7,
+            amount: data.meals[0].strMeasure7
+        },
+        {
+            ingredient: data.meals[0].strIngredient8,
+            amount: data.meals[0].strMeasure8
+        },
+        {
+            ingredient: data.meals[0].strIngredient9,
+            amount: data.meals[0].strMeasure9
+        },
+        {
+            ingredient: data.meals[0].strIngredient10,
+            amount: data.meals[0].strMeasure10
+        },
+        {
+            ingredient: data.meals[0].strIngredient11,
+            amount: data.meals[0].strMeasure11
+        },
+        {
+            ingredient: data.meals[0].strIngredient12,
+            amount: data.meals[0].strMeasure12
+        },
+        {
+            ingredient: data.meals[0].strIngredient13,
+            amount: data.meals[0].strMeasure13
+        },
+        {
+            ingredient: data.meals[0].strIngredient14,
+            amount: data.meals[0].strMeasure14
+        },
+        {
+            ingredient: data.meals[0].strIngredient15,
+            amount: data.meals[0].strMeasure15
+        },
+        {
+            ingredient: data.meals[0].strIngredient16,
+            amount: data.meals[0].strMeasure16
+        },
+        {
+            ingredient: data.meals[0].strIngredient17,
+            amount: data.meals[0].strMeasure17
+        },
+        {
+            ingredient: data.meals[0].strIngredient18,
+            amount: data.meals[0].strMeasure18
+        },
+        {
+            ingredient: data.meals[0].strIngredient19,
+            amount: data.meals[0].strMeasure19
+        },
+        {
+            ingredient: data.meals[0].strIngredient20,
+            amount: data.meals[0].strMeasure20
+        },
+    ];
+
+    for (var i = 0; i < ingredients.length; i++) {
+        if (ingredients[i].ingredient && ingredients[i].amount) {
+            $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
+        }
+       
+    }
+}
+
 // Creates the modal to display the recipe information
 var createRecipeModal = function (data) {
 
@@ -14,6 +106,7 @@ var createRecipeModal = function (data) {
     $(".recipe-title").text(recipeTitle);
     $(".instructions").text(instructions);
     $(".recipe-img").attr( { src: recipeImg, alt: recipeTitle} );
+    createIngredientsList(data);
     modal.classList.add("is-active");
 }
 
