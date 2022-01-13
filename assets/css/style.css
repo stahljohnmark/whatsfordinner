@@ -1,0 +1,33 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-weight: 300;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+.topContainer {
+    text-align: center;
+    margin: 10% 20% 0 20%;
+}
+
+.meal-input,
+.drink-input {
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 50px 0 0 50px;
+    border: 1px solid;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.search-meal-btn,
+.search-drink-btn {
+    height: 40px;
+    margin-top: 40px;
+    border: 1px solid;
+    border-radius: 0 50px 50px 0;
+}
