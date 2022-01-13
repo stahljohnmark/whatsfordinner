@@ -5,12 +5,37 @@ var recipesColumn = document.getElementById("recipe-column");
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
+var createRecipeModal = function (data) {
+    modal.classList.add("is-active");
+    for (var i = 0; i < data.meals.length; i++) {
+        var recipeTitle = data.meals[i].strMeal;
+        var instructions = data.meals[i].strInstructions;
+        $(".recipe-title").text(recipeTitle);
+    }
+}
+
 var displayClickedRecipe = function (event) {
+    event.preventDefault();
     console.log("This is being called");
     var index = $(event.target).attr("data-index");
     console.log(index);
-    modal.classList.add("is-active");
-}
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${index}`)
+    .then(function(response) {
+        if(response.ok) {
+            response.json().then(function (data) {
+                console.log(data.meals[0].strIngredient1);
+                createRecipeModal(data);
+            });
+        } else {
+            console.log("Recipe not found!");
+        }
+    })
+    .catch(function (error) {
+        console.log("Unable to connect to The Meal Db");
+    });
+
+};
 
 var stopDisplayingRecipe = function (event) {
     console.log("Stop displaying recipe is being called");
