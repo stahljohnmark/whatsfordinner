@@ -9,6 +9,31 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
+header {
+    background-color: #5C5B5B;
+    padding: 0px 15px;
+}
+
+header img { 
+    height: 200px;
+    width: 200px;
+}
+
+header h1 {
+    flex: auto;
+    font-size: 500%;
+    line-height: 25%;
+    color: #ffffff;
+    margin-bottom: 20%;
+    text-align: center;
+    font-family:'Amatic SC';
+    font-weight: 500%;
+}
+
+h2 {
+    font-family: 'Sora';
+}
+
 .topContainer {
     text-align: center;
     margin: 10% 20% 0 20%;
