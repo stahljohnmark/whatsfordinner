@@ -2,15 +2,18 @@ var mealInput = document.getElementById("meal-input");
 var drinkInput = document.getElementById("drink-input");
 var recipesContainer = document.querySelector(".recipe-container");
 var recipesColumn = document.getElementById("recipe-column");
+var favorite = {
+    meal: [],
+    drink: []
+}
 var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 
 
 // The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
 // strings and puts them into an array of objects so we can iterate through them to display on the page.
-var createMealIngredientsList = function (data) {
-    var ingredients = [
-        {
+var createMealIngredientsList = function(data) {
+    var ingredients = [{
             ingredient: data.meals[0].strIngredient1,
             amount: data.meals[0].strMeasure1
         },
@@ -100,13 +103,12 @@ var createMealIngredientsList = function (data) {
         if (ingredients[i].ingredient && ingredients[i].amount) {
             $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
         }
-       
+
     }
 }
 
-var createDrinkIngredientsList = function (data) {
-    var ingredients = [
-        {
+var createDrinkIngredientsList = function(data) {
+    var ingredients = [{
             ingredient: data.drinks[0].strIngredient1,
             amount: data.drinks[0].strMeasure1
         },
@@ -179,7 +181,7 @@ var createDrinkIngredientsList = function (data) {
 };
 
 // Creates the modal to display the recipe information
-var createMealModal = function (data) {
+var createMealModal = function(data) {
     var recipeTitle = data.meals[0].strMeal;
     var instructions = data.meals[0].strInstructions;
     var recipeImg = data.meals[0].strMealThumb;
@@ -191,29 +193,29 @@ var createMealModal = function (data) {
 }
 
 // Makes a call the the api using the id of the recipe that was clicked to show that recipes info
-var displayMealRecipe = function (event) {
+var displayMealRecipe = function(event) {
     event.preventDefault();
     var index = $(event.target).attr("data-index");
 
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${index}`)
-    .then(function(response) {
-        if(response.ok) {
-            response.json().then(function (data) {
-                createMealModal(data);
-            });
-        } else {
-            // To do remove console.log and display a modal here stating recipe was not found
-            console.log("Recipe not found!");
-        }
-    })
-    .catch(function (error) {
-        // To do remove console.log and display a modal stating unable to connect to The Meal Db
-        console.log("Unable to connect to The Meal Db");
-    });
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    createMealModal(data);
+                });
+            } else {
+                // To do remove console.log and display a modal here stating recipe was not found
+                console.log("Recipe not found!");
+            }
+        })
+        .catch(function(error) {
+            // To do remove console.log and display a modal stating unable to connect to The Meal Db
+            console.log("Unable to connect to The Meal Db");
+        });
 
 };
 
-var createDrinkModal = function (data) {
+var createDrinkModal = function(data) {
     var drinkTitle = data.drinks[0].strDrink;
     var instructions = data.drinks[0].strInstructions;
     var recipeImg = data.drinks[0].strDrinkThumb;
@@ -224,29 +226,29 @@ var createDrinkModal = function (data) {
     modal.classList.add("is-active");
 }
 
-var displayDrinkRecipe = function (event) {
+var displayDrinkRecipe = function(event) {
     event.preventDefault();
     var index = $(event.target).attr("data-index");
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${index}`)
-    .then(function(response) {
-        if(response.ok) {
-            response.json().then(function (data) {
-                console.log(data);
-                createDrinkModal(data);
-            });
-        } else {
-            // To do remove console.log and display a modal here stating recipe was not found
-            console.log("Recipe not found!");
-        }
-    })
-    .catch(function (error) {
-        // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
-        console.log("Unable to connect to The Cocktail Db");
-    });
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    console.log(data);
+                    createDrinkModal(data);
+                });
+            } else {
+                // To do remove console.log and display a modal here stating recipe was not found
+                console.log("Recipe not found!");
+            }
+        })
+        .catch(function(error) {
+            // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
+            console.log("Unable to connect to The Cocktail Db");
+        });
 }
 
-var stopDisplayingRecipe = function (event) {
+var stopDisplayingRecipe = function(event) {
     modal.classList.remove("is-active");
 }
 
@@ -262,7 +264,7 @@ var createFoodCard = function(data) {
         
             <div class="card-image has-text-centered px-6">
             <img src="${recipeImage}" alt="${recipeTitle}">
-            <div class="top-right is-size-1-mobile"><i class="far fa-star meal-star" id="meal-star"></i></div>
+            <div class="top-right is-size-1-mobile"><i class="far fa-star meal-star" id="meal-star" data-title="${recipeTitle}"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
@@ -313,7 +315,7 @@ var createDrinkCard = function(data) {
         <div class="card">
             <div class="card-image has-text-centered px-6">
                 <img src="${recipeImage}" alt="${recipeTitle}">
-                <div class="top-right is-size-1-mobile"><i class="far fa-star drink-star" id="drink-star"></i></div>
+                <div class="top-right is-size-1-mobile"><i class="far fa-star drink-star" id="drink-star" data-title="${recipeTitle}"></i></div>
             </div>
             <div class="card-content">
                 <p class="title is-size-5">${recipeTitle}</p>
@@ -389,9 +391,23 @@ function drinkStar() {
             $(".drink-star").on("click", function() {
 
                 $(this).removeClass("far fa-star").addClass("fas fa-star save");
+                console.log($(this).attr('data-title'));
+                if (favorite.drink.indexOf($(this).attr('data-title')) === -1) {
+                    favorite.drink.push($(this).attr('data-title'));
+                    localStorage.setItem("favorite", JSON.stringify(favorite));
+                }
+
+
             });
             $(".drink-star").on("dblclick", function() {
                 $(this).removeClass("fas fa-star save").addClass("far fa-star");
+                if (favorite.drink.indexOf($(this).attr('data-title')) !== -1) {
+                    var index = favorite.drink.indexOf($(this).attr('data-title'));
+                    favorite.drink.splice(index, 1);
+                    localStorage.setItem("favorite", JSON.stringify(favorite));
+                }
+
+
             });
             clearInterval(drinkStarInvterval);
         }
@@ -408,13 +424,24 @@ function mealStar() {
             $(".meal-star").on("click", function() {
 
                 $(this).removeClass("far fa-star").addClass("fas fa-star save");
+                console.log($(this).attr('data-title'));
+                if (favorite.meal.indexOf($(this).attr('data-title')) === -1) {
+                    favorite.meal.push($(this).attr('data-title'));
+                    localStorage.setItem("favorite", JSON.stringify(favorite));
+                }
+                console.log(favorite.meal);
             });
             $(".meal-star").on("dblclick", function() {
                 $(this).removeClass("fas fa-star save").addClass("far fa-star");
+                if (favorite.meal.indexOf($(this).attr('data-title')) !== -1) {
+                    var index = favorite.meal.indexOf($(this).attr('data-title'));
+                    favorite.meal.splice(index, 1);
+                    localStorage.setItem("favorite", JSON.stringify(favorite));
+                }
+                console.log(favorite.meal);
             });
             clearInterval(mealStarInvterval);
         }
     }, 1000);
 
 }
-
