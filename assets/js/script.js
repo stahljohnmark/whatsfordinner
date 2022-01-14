@@ -6,6 +6,251 @@ var favorite = {
     meal: [],
     drink: []
 }
+var modalBackground = document.querySelector(".modal-background");
+var modal = document.querySelector(".modal");
+
+
+// The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
+// strings and puts them into an array of objects so we can iterate through them to display on the page.
+var createMealIngredientsList = function(data) {
+    var ingredients = [{
+            ingredient: data.meals[0].strIngredient1,
+            amount: data.meals[0].strMeasure1
+        },
+        {
+            ingredient: data.meals[0].strIngredient2,
+            amount: data.meals[0].strMeasure2
+        },
+        {
+            ingredient: data.meals[0].strIngredient3,
+            amount: data.meals[0].strMeasure3
+        },
+        {
+            ingredient: data.meals[0].strIngredient4,
+            amount: data.meals[0].strMeasure4
+        },
+        {
+            ingredient: data.meals[0].strIngredient5,
+            amount: data.meals[0].strMeasure5
+        },
+        {
+            ingredient: data.meals[0].strIngredient6,
+            amount: data.meals[0].strMeasure6
+        },
+        {
+            ingredient: data.meals[0].strIngredient7,
+            amount: data.meals[0].strMeasure7
+        },
+        {
+            ingredient: data.meals[0].strIngredient8,
+            amount: data.meals[0].strMeasure8
+        },
+        {
+            ingredient: data.meals[0].strIngredient9,
+            amount: data.meals[0].strMeasure9
+        },
+        {
+            ingredient: data.meals[0].strIngredient10,
+            amount: data.meals[0].strMeasure10
+        },
+        {
+            ingredient: data.meals[0].strIngredient11,
+            amount: data.meals[0].strMeasure11
+        },
+        {
+            ingredient: data.meals[0].strIngredient12,
+            amount: data.meals[0].strMeasure12
+        },
+        {
+            ingredient: data.meals[0].strIngredient13,
+            amount: data.meals[0].strMeasure13
+        },
+        {
+            ingredient: data.meals[0].strIngredient14,
+            amount: data.meals[0].strMeasure14
+        },
+        {
+            ingredient: data.meals[0].strIngredient15,
+            amount: data.meals[0].strMeasure15
+        },
+        {
+            ingredient: data.meals[0].strIngredient16,
+            amount: data.meals[0].strMeasure16
+        },
+        {
+            ingredient: data.meals[0].strIngredient17,
+            amount: data.meals[0].strMeasure17
+        },
+        {
+            ingredient: data.meals[0].strIngredient18,
+            amount: data.meals[0].strMeasure18
+        },
+        {
+            ingredient: data.meals[0].strIngredient19,
+            amount: data.meals[0].strMeasure19
+        },
+        {
+            ingredient: data.meals[0].strIngredient20,
+            amount: data.meals[0].strMeasure20
+        },
+    ];
+    // clear the ingredient list 
+    $(".ingredient-list").text("");
+    // populate the ingredient list
+    for (var i = 0; i < ingredients.length; i++) {
+        // Not all of the recipes have 20 ingredients.  To ensure empty strings are not being added to the list of ingredients
+        // we have this check in place that makes sure those properties aren't empty
+        if (ingredients[i].ingredient && ingredients[i].amount) {
+            $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
+        }
+
+    }
+}
+
+var createDrinkIngredientsList = function(data) {
+    var ingredients = [{
+            ingredient: data.drinks[0].strIngredient1,
+            amount: data.drinks[0].strMeasure1
+        },
+        {
+            ingredient: data.drinks[0].strIngredient2,
+            amount: data.drinks[0].strMeasure2
+        },
+        {
+            ingredient: data.drinks[0].strIngredient3,
+            amount: data.drinks[0].strMeasure3
+        },
+        {
+            ingredient: data.drinks[0].strIngredient4,
+            amount: data.drinks[0].strMeasure4
+        },
+        {
+            ingredient: data.drinks[0].strIngredient5,
+            amount: data.drinks[0].strMeasure5
+        },
+        {
+            ingredient: data.drinks[0].strIngredient6,
+            amount: data.drinks[0].strMeasure6
+        },
+        {
+            ingredient: data.drinks[0].strIngredient7,
+            amount: data.drinks[0].strMeasure7
+        },
+        {
+            ingredient: data.drinks[0].strIngredient8,
+            amount: data.drinks[0].strMeasure8
+        },
+        {
+            ingredient: data.drinks[0].strIngredient9,
+            amount: data.drinks[0].strMeasure9
+        },
+        {
+            ingredient: data.drinks[0].strIngredient10,
+            amount: data.drinks[0].strMeasure10
+        },
+        {
+            ingredient: data.drinks[0].strIngredient11,
+            amount: data.drinks[0].strMeasure11
+        },
+        {
+            ingredient: data.drinks[0].strIngredient12,
+            amount: data.drinks[0].strMeasure12
+        },
+        {
+            ingredient: data.drinks[0].strIngredient13,
+            amount: data.drinks[0].strMeasure13
+        },
+        {
+            ingredient: data.drinks[0].strIngredient14,
+            amount: data.drinks[0].strMeasure14
+        },
+        {
+            ingredient: data.drinks[0].strIngredient15,
+            amount: data.drinks[0].strMeasure15
+        },
+    ];
+    // clear the ingredient list
+    $(".ingredient-list").text("");
+    // populate the ingredient list
+    for (var i = 0; i < ingredients.length; i++) {
+        if (ingredients[i].ingredient && ingredients[i].amount) {
+            $(".ingredient-list").append(`<li>${ingredients[i].amount} ${ingredients[i].ingredient}</li>`);
+        }
+    }
+
+};
+
+// Creates the modal to display the recipe information
+var createMealModal = function(data) {
+    var recipeTitle = data.meals[0].strMeal;
+    var instructions = data.meals[0].strInstructions;
+    var recipeImg = data.meals[0].strMealThumb;
+    $(".recipe-title").text(recipeTitle);
+    $(".instructions").text(instructions);
+    $(".recipe-img").attr({ src: recipeImg, alt: recipeTitle });
+    createMealIngredientsList(data);
+    modal.classList.add("is-active");
+}
+
+// Makes a call the the api using the id of the recipe that was clicked to show that recipes info
+var displayMealRecipe = function(event) {
+    event.preventDefault();
+    var index = $(event.target).attr("data-index");
+
+    fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${index}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    createMealModal(data);
+                });
+            } else {
+                // To do remove console.log and display a modal here stating recipe was not found
+                console.log("Recipe not found!");
+            }
+        })
+        .catch(function(error) {
+            // To do remove console.log and display a modal stating unable to connect to The Meal Db
+            console.log("Unable to connect to The Meal Db");
+        });
+
+};
+
+var createDrinkModal = function(data) {
+    var drinkTitle = data.drinks[0].strDrink;
+    var instructions = data.drinks[0].strInstructions;
+    var recipeImg = data.drinks[0].strDrinkThumb;
+    $(".recipe-title").text(drinkTitle);
+    $(".instructions").text(instructions);
+    $(".recipe-img").attr({ src: recipeImg, alt: drinkTitle });
+    createDrinkIngredientsList(data);
+    modal.classList.add("is-active");
+}
+
+var displayDrinkRecipe = function(event) {
+    event.preventDefault();
+    var index = $(event.target).attr("data-index");
+
+    fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${index}`)
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    console.log(data);
+                    createDrinkModal(data);
+                });
+            } else {
+                // To do remove console.log and display a modal here stating recipe was not found
+                console.log("Recipe not found!");
+            }
+        })
+        .catch(function(error) {
+            // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
+            console.log("Unable to connect to The Cocktail Db");
+        });
+}
+
+var stopDisplayingRecipe = function(event) {
+    modal.classList.remove("is-active");
+}
 
 // create card for displaying food
 var createFoodCard = function(data) {
@@ -26,7 +271,7 @@ var createFoodCard = function(data) {
             </div>
             <footer class="card-footer">
                 <p class="card-footer-item">
-                    <a href="">View Recipe</a>
+                    <button class="button is-link is-light has-background-white recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
                 </p>
             </footer>
         </div>
@@ -76,9 +321,9 @@ var createDrinkCard = function(data) {
                 <p class="title is-size-5">${recipeTitle}</p>
             </div>
             <footer class="card-footer">
-                <p class="card-footer-item">
-                    <a href="">View Recipe</a>
-                </p>
+            <p class="card-footer-item">
+            <button class="button is-link is-light has-background-white drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
+            </p>
             </footer>
         </div>
     </div>`);
@@ -111,8 +356,6 @@ function drinkSearch(query) {
 
 }
 
-
-
 // EventListener for meal input
 document.getElementById("meal-form").addEventListener("submit", function(event) {
     event.preventDefault();
@@ -126,7 +369,19 @@ document.getElementById("drink-form").addEventListener("submit", function(event)
     event.preventDefault();
     drinkSearch(drinkInput.value);
     drinkStar();
+
 });
+
+// when view recipe button is clicked it will call the displayMealRecipe function to display the modal
+$(document).on("click", ".recipe-button", displayMealRecipe);
+$(document).on("click", ".drink-button", displayDrinkRecipe);
+
+// when background is clicked stop displaying modal
+$(document).on("click", ".modal-background", stopDisplayingRecipe);
+
+// when x is clicked stop displaying modal
+$(document).on("click", ".delete", stopDisplayingRecipe);
+
 // drink save start
 function drinkStar() {
     var drinkStarInvterval = setInterval(function() {
