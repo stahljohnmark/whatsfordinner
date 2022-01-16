@@ -13,87 +13,87 @@ var errorType = document.querySelector(".error-type");
 
 // The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
 // strings and puts them into an array of objects so we can iterate through them to display on the page.
-var createMealIngredientsList = function (data) {
+var createMealIngredientsList = function(data) {
     var ingredients = [{
-        ingredient: data.meals[0].strIngredient1,
-        amount: data.meals[0].strMeasure1
-    },
-    {
-        ingredient: data.meals[0].strIngredient2,
-        amount: data.meals[0].strMeasure2
-    },
-    {
-        ingredient: data.meals[0].strIngredient3,
-        amount: data.meals[0].strMeasure3
-    },
-    {
-        ingredient: data.meals[0].strIngredient4,
-        amount: data.meals[0].strMeasure4
-    },
-    {
-        ingredient: data.meals[0].strIngredient5,
-        amount: data.meals[0].strMeasure5
-    },
-    {
-        ingredient: data.meals[0].strIngredient6,
-        amount: data.meals[0].strMeasure6
-    },
-    {
-        ingredient: data.meals[0].strIngredient7,
-        amount: data.meals[0].strMeasure7
-    },
-    {
-        ingredient: data.meals[0].strIngredient8,
-        amount: data.meals[0].strMeasure8
-    },
-    {
-        ingredient: data.meals[0].strIngredient9,
-        amount: data.meals[0].strMeasure9
-    },
-    {
-        ingredient: data.meals[0].strIngredient10,
-        amount: data.meals[0].strMeasure10
-    },
-    {
-        ingredient: data.meals[0].strIngredient11,
-        amount: data.meals[0].strMeasure11
-    },
-    {
-        ingredient: data.meals[0].strIngredient12,
-        amount: data.meals[0].strMeasure12
-    },
-    {
-        ingredient: data.meals[0].strIngredient13,
-        amount: data.meals[0].strMeasure13
-    },
-    {
-        ingredient: data.meals[0].strIngredient14,
-        amount: data.meals[0].strMeasure14
-    },
-    {
-        ingredient: data.meals[0].strIngredient15,
-        amount: data.meals[0].strMeasure15
-    },
-    {
-        ingredient: data.meals[0].strIngredient16,
-        amount: data.meals[0].strMeasure16
-    },
-    {
-        ingredient: data.meals[0].strIngredient17,
-        amount: data.meals[0].strMeasure17
-    },
-    {
-        ingredient: data.meals[0].strIngredient18,
-        amount: data.meals[0].strMeasure18
-    },
-    {
-        ingredient: data.meals[0].strIngredient19,
-        amount: data.meals[0].strMeasure19
-    },
-    {
-        ingredient: data.meals[0].strIngredient20,
-        amount: data.meals[0].strMeasure20
-    },
+            ingredient: data.meals[0].strIngredient1,
+            amount: data.meals[0].strMeasure1
+        },
+        {
+            ingredient: data.meals[0].strIngredient2,
+            amount: data.meals[0].strMeasure2
+        },
+        {
+            ingredient: data.meals[0].strIngredient3,
+            amount: data.meals[0].strMeasure3
+        },
+        {
+            ingredient: data.meals[0].strIngredient4,
+            amount: data.meals[0].strMeasure4
+        },
+        {
+            ingredient: data.meals[0].strIngredient5,
+            amount: data.meals[0].strMeasure5
+        },
+        {
+            ingredient: data.meals[0].strIngredient6,
+            amount: data.meals[0].strMeasure6
+        },
+        {
+            ingredient: data.meals[0].strIngredient7,
+            amount: data.meals[0].strMeasure7
+        },
+        {
+            ingredient: data.meals[0].strIngredient8,
+            amount: data.meals[0].strMeasure8
+        },
+        {
+            ingredient: data.meals[0].strIngredient9,
+            amount: data.meals[0].strMeasure9
+        },
+        {
+            ingredient: data.meals[0].strIngredient10,
+            amount: data.meals[0].strMeasure10
+        },
+        {
+            ingredient: data.meals[0].strIngredient11,
+            amount: data.meals[0].strMeasure11
+        },
+        {
+            ingredient: data.meals[0].strIngredient12,
+            amount: data.meals[0].strMeasure12
+        },
+        {
+            ingredient: data.meals[0].strIngredient13,
+            amount: data.meals[0].strMeasure13
+        },
+        {
+            ingredient: data.meals[0].strIngredient14,
+            amount: data.meals[0].strMeasure14
+        },
+        {
+            ingredient: data.meals[0].strIngredient15,
+            amount: data.meals[0].strMeasure15
+        },
+        {
+            ingredient: data.meals[0].strIngredient16,
+            amount: data.meals[0].strMeasure16
+        },
+        {
+            ingredient: data.meals[0].strIngredient17,
+            amount: data.meals[0].strMeasure17
+        },
+        {
+            ingredient: data.meals[0].strIngredient18,
+            amount: data.meals[0].strMeasure18
+        },
+        {
+            ingredient: data.meals[0].strIngredient19,
+            amount: data.meals[0].strMeasure19
+        },
+        {
+            ingredient: data.meals[0].strIngredient20,
+            amount: data.meals[0].strMeasure20
+        },
     ];
     // clear the ingredient list 
     $(".ingredient-list").text("");
@@ -108,67 +108,67 @@ var createMealIngredientsList = function (data) {
     }
 }
 
-var createDrinkIngredientsList = function (data) {
+var createDrinkIngredientsList = function(data) {
     var ingredients = [{
-        ingredient: data.drinks[0].strIngredient1,
-        amount: data.drinks[0].strMeasure1
-    },
-    {
-        ingredient: data.drinks[0].strIngredient2,
-        amount: data.drinks[0].strMeasure2
-    },
-    {
-        ingredient: data.drinks[0].strIngredient3,
-        amount: data.drinks[0].strMeasure3
-    },
-    {
-        ingredient: data.drinks[0].strIngredient4,
-        amount: data.drinks[0].strMeasure4
-    },
-    {
-        ingredient: data.drinks[0].strIngredient5,
-        amount: data.drinks[0].strMeasure5
-    },
-    {
-        ingredient: data.drinks[0].strIngredient6,
-        amount: data.drinks[0].strMeasure6
-    },
-    {
-        ingredient: data.drinks[0].strIngredient7,
-        amount: data.drinks[0].strMeasure7
-    },
-    {
-        ingredient: data.drinks[0].strIngredient8,
-        amount: data.drinks[0].strMeasure8
-    },
-    {
-        ingredient: data.drinks[0].strIngredient9,
-        amount: data.drinks[0].strMeasure9
-    },
-    {
-        ingredient: data.drinks[0].strIngredient10,
-        amount: data.drinks[0].strMeasure10
-    },
-    {
-        ingredient: data.drinks[0].strIngredient11,
-        amount: data.drinks[0].strMeasure11
-    },
-    {
-        ingredient: data.drinks[0].strIngredient12,
-        amount: data.drinks[0].strMeasure12
-    },
-    {
-        ingredient: data.drinks[0].strIngredient13,
-        amount: data.drinks[0].strMeasure13
-    },
-    {
-        ingredient: data.drinks[0].strIngredient14,
-        amount: data.drinks[0].strMeasure14
-    },
-    {
-        ingredient: data.drinks[0].strIngredient15,
-        amount: data.drinks[0].strMeasure15
-    },
+            ingredient: data.drinks[0].strIngredient1,
+            amount: data.drinks[0].strMeasure1
+        },
+        {
+            ingredient: data.drinks[0].strIngredient2,
+            amount: data.drinks[0].strMeasure2
+        },
+        {
+            ingredient: data.drinks[0].strIngredient3,
+            amount: data.drinks[0].strMeasure3
+        },
+        {
+            ingredient: data.drinks[0].strIngredient4,
+            amount: data.drinks[0].strMeasure4
+        },
+        {
+            ingredient: data.drinks[0].strIngredient5,
+            amount: data.drinks[0].strMeasure5
+        },
+        {
+            ingredient: data.drinks[0].strIngredient6,
+            amount: data.drinks[0].strMeasure6
+        },
+        {
+            ingredient: data.drinks[0].strIngredient7,
+            amount: data.drinks[0].strMeasure7
+        },
+        {
+            ingredient: data.drinks[0].strIngredient8,
+            amount: data.drinks[0].strMeasure8
+        },
+        {
+            ingredient: data.drinks[0].strIngredient9,
+            amount: data.drinks[0].strMeasure9
+        },
+        {
+            ingredient: data.drinks[0].strIngredient10,
+            amount: data.drinks[0].strMeasure10
+        },
+        {
+            ingredient: data.drinks[0].strIngredient11,
+            amount: data.drinks[0].strMeasure11
+        },
+        {
+            ingredient: data.drinks[0].strIngredient12,
+            amount: data.drinks[0].strMeasure12
+        },
+        {
+            ingredient: data.drinks[0].strIngredient13,
+            amount: data.drinks[0].strMeasure13
+        },
+        {
+            ingredient: data.drinks[0].strIngredient14,
+            amount: data.drinks[0].strMeasure14
+        },
+        {
+            ingredient: data.drinks[0].strIngredient15,
+            amount: data.drinks[0].strMeasure15
+        },
     ];
     // clear the ingredient list
     $(".ingredient-list").text("");
@@ -182,7 +182,7 @@ var createDrinkIngredientsList = function (data) {
 };
 
 // Creates the modal to display the recipe information
-var createMealModal = function (data) {
+var createMealModal = function(data) {
     var recipeTitle = data.meals[0].strMeal;
     var instructions = data.meals[0].strInstructions;
     var recipeImg = data.meals[0].strMealThumb;
@@ -194,14 +194,14 @@ var createMealModal = function (data) {
 }
 
 // Makes a call the the api using the id of the recipe that was clicked to show that recipes info
-var displayMealRecipe = function (event) {
+var displayMealRecipe = function(event) {
     event.preventDefault();
     var index = $(event.target).attr("data-index");
 
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${index}`)
-        .then(function (response) {
+        .then(function(response) {
             if (response.ok) {
-                response.json().then(function (data) {
+                response.json().then(function(data) {
                     createMealModal(data);
                 });
             } else {
@@ -209,14 +209,14 @@ var displayMealRecipe = function (event) {
                 console.log("Recipe not found!");
             }
         })
-        .catch(function (error) {
+        .catch(function(error) {
             // To do remove console.log and display a modal stating unable to connect to The Meal Db
             console.log("Unable to connect to The Meal Db");
         });
 
 };
 
-var createDrinkModal = function (data) {
+var createDrinkModal = function(data) {
     var drinkTitle = data.drinks[0].strDrink;
     var instructions = data.drinks[0].strInstructions;
     var recipeImg = data.drinks[0].strDrinkThumb;
@@ -227,14 +227,14 @@ var createDrinkModal = function (data) {
     modal.classList.add("is-active");
 }
 
-var displayDrinkRecipe = function (event) {
+var displayDrinkRecipe = function(event) {
     event.preventDefault();
     var index = $(event.target).attr("data-index");
 
     fetch(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${index}`)
-        .then(function (response) {
+        .then(function(response) {
             if (response.ok) {
-                response.json().then(function (data) {
+                response.json().then(function(data) {
                     console.log(data);
                     createDrinkModal(data);
                 });
@@ -243,21 +243,21 @@ var displayDrinkRecipe = function (event) {
                 console.log("Recipe not found!");
             }
         })
-        .catch(function (error) {
+        .catch(function(error) {
             // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
             console.log("Unable to connect to The Cocktail Db");
         });
 }
 
-var stopDisplayingRecipe = function (event) {
+var stopDisplayingRecipe = function(event) {
     modal.classList.remove("is-active");
 }
 
-var stopDisplayingError = function (event) {
-    errorModal.classList.remove("is-active");
-}
-// create card for displaying food
-var createFoodCard = function (data) {
+var stopDisplayingError = function(event) {
+        errorModal.classList.remove("is-active");
+    }
+    // create card for displaying food
+var createFoodCard = function(data) {
     // clear recipe div content
     recipesColumn.textContent = "";
     for (var i = 0; i < data.meals.length; i++) {
@@ -284,7 +284,7 @@ var createFoodCard = function (data) {
 }
 
 // display food recipe card with food title, image, and button to view recipe
-var displayFoodCards = function (data) {
+var displayFoodCards = function(data) {
 
     // if there are less than 4 recipes, we want to center the cards on the screen 
     if (data.meals.length < 4) {
@@ -296,12 +296,12 @@ var displayFoodCards = function (data) {
     createFoodCard(data);
 }
 
-var displayErrorModal = function (query) {
+var displayErrorModal = function(query) {
     $(errorType).text("");
     $(errorType).text(`Ingredient ${query} not found.`);
     errorModal.classList.add("is-active");
 }
-var displayAPIErrorModal = function () {
+var displayAPIErrorModal = function() {
     $(errorType).text("");
     $(errorType).text(`Could not connect to API.`);
     errorModal.classList.add("is-active");
@@ -311,9 +311,9 @@ var displayAPIErrorModal = function () {
 function mealSearch(query) {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
     fetch(url)
-        .then(function (response) {
+        .then(function(response) {
             if (response.ok) {
-                response.json().then(function (data) {
+                response.json().then(function(data) {
                     console.log(data);
                     if (!data.meals) {
                         displayErrorModal(query);
@@ -325,12 +325,12 @@ function mealSearch(query) {
                 displayErrorModal(query);
             }
         })
-        .catch(function (error) {
+        .catch(function(error) {
             displayAPIErrorModal();
         })
 }
 
-var createDrinkCard = function (data) {
+var createDrinkCard = function(data) {
     // clear recipe div content
     recipesColumn.textContent = "";
     for (var i = 0; i < data.drinks.length; i++) {
@@ -355,7 +355,7 @@ var createDrinkCard = function (data) {
     }
 }
 
-var displayDrinkCards = function (data) {
+var displayDrinkCards = function(data) {
 
     // if there are less than 4 recipes, we want to center the cards on the screen 
     if (data.drinks.length < 4) {
@@ -371,27 +371,27 @@ var displayDrinkCards = function (data) {
 function drinkSearch(query) {
     const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${query}`;
     fetch(url)
-    .then(function (response) {
-        if (response.ok) {
-            response.json().then(function (data) {
-                console.log(data);
-                if (!data.drinks) {
-                    displayErrorModal(query);
-                } else {
-                    displayDrinkCards(data);
-                }
-            })
-        } else {
-            displayErrorModal(query);
-        }
-    })
-    .catch(function (error) {
-        displayAPIErrorModal();
-    })
+        .then(function(response) {
+            if (response.ok) {
+                response.json().then(function(data) {
+                    console.log(data);
+                    if (!data.drinks) {
+                        displayErrorModal(query);
+                    } else {
+                        displayDrinkCards(data);
+                    }
+                })
+            } else {
+                displayErrorModal(query);
+            }
+        })
+        .catch(function(error) {
+            displayAPIErrorModal();
+        })
 }
 
 // EventListener for meal input
-document.getElementById("meal-form").addEventListener("submit", function (event) {
+document.getElementById("meal-form").addEventListener("submit", function(event) {
     event.preventDefault();
     mealSearch(mealInput.value);
     mealStar()
@@ -399,7 +399,7 @@ document.getElementById("meal-form").addEventListener("submit", function (event)
 });
 
 // EventListener for drink input
-document.getElementById("drink-form").addEventListener("submit", function (event) {
+document.getElementById("drink-form").addEventListener("submit", function(event) {
     event.preventDefault();
     drinkSearch(drinkInput.value);
     drinkStar();
@@ -420,11 +420,11 @@ $(document).on("click", ".delete", stopDisplayingError);
 
 // drink save start
 function drinkStar() {
-    var drinkStarInvterval = setInterval(function () {
+    var drinkStarInvterval = setInterval(function() {
 
         if ($("#drink-star").length) {
 
-            $(".drink-star").on("click", function () {
+            $(".drink-star").on("click", function() {
 
                 $(this).removeClass("far fa-star").addClass("fas fa-star save");
                 console.log($(this).attr('data-title'));
@@ -435,7 +435,7 @@ function drinkStar() {
 
 
             });
-            $(".drink-star").on("dblclick", function () {
+            $(".drink-star").on("dblclick", function() {
                 $(this).removeClass("fas fa-star save").addClass("far fa-star");
                 if (favorite.drink.indexOf($(this).attr('data-title')) !== -1) {
                     var index = favorite.drink.indexOf($(this).attr('data-title'));
@@ -453,11 +453,11 @@ function drinkStar() {
 
 // meal save start
 function mealStar() {
-    var mealStarInvterval = setInterval(function () {
+    var mealStarInvterval = setInterval(function() {
 
         if ($("#meal-star").length) {
 
-            $(".meal-star").on("click", function () {
+            $(".meal-star").on("click", function() {
 
                 $(this).removeClass("far fa-star").addClass("fas fa-star save");
                 console.log($(this).attr('data-title'));
@@ -467,7 +467,7 @@ function mealStar() {
                 }
                 console.log(favorite.meal);
             });
-            $(".meal-star").on("dblclick", function () {
+            $(".meal-star").on("dblclick", function() {
                 $(this).removeClass("fas fa-star save").addClass("far fa-star");
                 if (favorite.meal.indexOf($(this).attr('data-title')) !== -1) {
                     var index = favorite.meal.indexOf($(this).attr('data-title'));
@@ -481,3 +481,26 @@ function mealStar() {
     }, 1000);
 
 }
+
+
+// getting favorite drinks and meal from local storage
+if (localStorage.getItem("favorite")) {
+    favorite = JSON.parse(localStorage.getItem("favorite"))
+}
+// favorite star
+if (favorite.drink.length === 0) {
+    document.getElementById("drink-favorite-star").style.display = "none"
+}
+if (favorite.meal.length === 0) {
+    document.getElementById("meal-favorite-star").style.display = "none"
+}
+
+
+
+// event listeners for showing favorite meals and drinks
+document.getElementById("meal-favorite-star").addEventListener("click", function() {
+    console.log(favorite.meal);
+});
+document.getElementById("drink-favorite-star").addEventListener("click", function() {
+    console.log(favorite.drink);
+});

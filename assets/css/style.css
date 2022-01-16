@@ -32,14 +32,27 @@ body {
     border-radius: 0 50px 50px 0;
     cursor: url("../../assets/images/glass.cur"), pointer;
 }
+
 .search-meal-btn:hover,
 .search-drink-btn:hover {
     background-color: brown;
 }
+
 .top-right {
     position: absolute;
     top: -2px;
     right: 54px;
     text-decoration: none;
     color: gold
+}
+
+.drink-favorite-star,
+.meal-favorite-star {
+    display: none;
+    height: 40px;
+    margin-top: 40px;
+    padding: 10px 10px 0 10px;
+    color: gold;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }

@@ -19,6 +19,7 @@
         <!-- meal input -->
         <form class="input-container is-flex is-flex-direction-row" id="meal-form">
             <input type="text" class="meal-input" placeholder="Enter an ingredient for meal" id="meal-input">
+            <i class="far fa-star meal-favorite-star" id="meal-favorite-star"></i>
             <button type="submit" class="search-meal-btn" id="search-meal-btn">
                 <i class = "fas fa-search"></i>
             </button>
@@ -26,6 +27,7 @@
         <!-- drink input -->
         <form class="input-container is-flex is-flex-direction-row" id="drink-form">
             <input type="text" class="drink-input" placeholder="Enter an ingredient for drink" id="drink-input">
+            <i class="far fa-star drink-favorite-star" id="drink-favorite-star"></i>
             <button type="submit" class="search-drink-btn" id="search-drink-btn">
                 <i class = "fas fa-search"></i>
             </button>
@@ -44,41 +46,45 @@
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title recipe-title"></p>
-            <button class="delete" id="closetop" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-          <div class="content">
-              <img class="recipe-img" height="200px" width="200px">
-                <h4 class="ingredients">Ingredients:</h4>
-                <ul class="ingredient-list"><!-- Ingredient list will go here --></ul>
-                <h4>Instructions:</h4>
-                <div>
-                    <p class="instructions"><!-- Instructions will go here --></p>
-                </div>
-          <div>  
-          </section>
-        </div>
-    </div>
-    <!-- Error Modal -->
-    <div class="modal" id="error-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head">
-            <p class="modal-card-title error-title">Error</p>
-            <button class="delete" id="closetop" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-          <div class="content">
-                <h4 class="error-type"></h4>
-          <div>  
-          </section>
-        </div>
-    </div>
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src=" assets/js/script.js "></script>
+            <header class="modal-card-head">
+                <p class="modal-card-title recipe-title"></p>
+                <button class="delete" id="closetop" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="content">
+                    <img class="recipe-img" height="200px" width="200px">
+                    <h4 class="ingredients">Ingredients:</h4>
+                    <ul class="ingredient-list">
+                        <!-- Ingredient list will go here -->
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <div>
+                        <p class="instructions">
+                            <!-- Instructions will go here -->
+                        </p>
+                    </div>
+                    <div>
+            </section>
+            </div>
+            </div>
+            <!-- Error Modal -->
+            <div class="modal" id="error-modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head">
+                        <p class="modal-card-title error-title">Error</p>
+                        <button class="delete" id="closetop" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <div class="content">
+                            <h4 class="error-type"></h4>
+                            <div>
+                    </section>
+                    </div>
+                    </div>
+                    <!-- script -->
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src=" assets/js/script.js "></script>
 </body>
 
 </html>
