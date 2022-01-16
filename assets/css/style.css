@@ -2,11 +2,17 @@
     box-sizing: border-box;
 }
 
-body {
-    font-weight: 300;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
+header {
+    background-color: #5C5B5B;
+    padding: 0px 15px;
+}
+
+.title {
+    font-family: 'Amatic SC';
+}
+
+h2 {
+    font-family: 'Sora';
 }
 
 .topContainer {
