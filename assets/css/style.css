@@ -42,6 +42,7 @@ h2 {
 .search-drink-btn:hover {
     background-color: #6a94cc;
 }
+
 .top-right {
     position: absolute;
     top: -2px;
@@ -52,6 +53,21 @@ h2 {
     
 
 }
+
 .top-right:hover {
     font-size: 2em;
+}
+
+.card-footer {
+    background-color: #9DD2DC;
+}
+
+.recipe-button {
+    font-family: 'Sora';
+    background-color: #9DD2DC;
+    border: none;
+}
+
+.recipe-button:hover {
+    color: #FFFFFF;
 }
