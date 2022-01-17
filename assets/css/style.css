@@ -11,7 +11,7 @@ header {
     font-family: 'Amatic SC';
 }
 
-h2 {
+h2, .modal-card-title, .content {
     font-family: 'Sora';
 }
 
@@ -42,6 +42,7 @@ h2 {
 .search-drink-btn:hover {
     background-color: #6a94cc;
 }
+
 .top-right {
     position: absolute;
     top: -2px;
@@ -49,9 +50,30 @@ h2 {
     text-decoration: none;
     color: gold;
     cursor: pointer;
-    
-
 }
+
 .top-right:hover {
     font-size: 2em;
+}
+
+.card-footer {
+    background-color: #9DD2DC;
+}
+
+.recipe-button, .drink-button {
+    font-family: 'Sora';
+    background-color: #9DD2DC;
+    border: none;
+}
+
+.recipe-button:hover, .drink-button:hover {
+    color: #FFFFFF;
+}
+
+#recipe-header {
+    background-color: #9DD2DC;
+}
+
+#error-header {
+    background-color: #E82F1C;
 }

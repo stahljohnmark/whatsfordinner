@@ -285,7 +285,7 @@ var createFoodCard = function (data) {
             </div>
             <footer class="card-footer">
                 <p class="card-footer-item">
-                    <button class="button is-link is-light has-background-white recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
+                    <button class="button recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
                 </p>
             </footer>
         </div>
@@ -346,7 +346,7 @@ var createDrinkCard = function (data) {
             </div>
             <footer class="card-footer">
             <p class="card-footer-item">
-            <button class="button is-link is-light has-background-white drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
+            <button class="button drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
             </p>
             </footer>
         </div>
