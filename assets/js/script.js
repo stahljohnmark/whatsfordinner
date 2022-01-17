@@ -504,6 +504,7 @@ document.getElementById("meal-favorite-star").addEventListener("click", function
 });
 document.getElementById("drink-favorite-star").addEventListener("click", function() {
     console.log(favorite.drink);
+    creatFavoritdrink(favorite.drink)
 });
 
 function creatFavoritMeal(mealList) {
@@ -522,6 +523,7 @@ function creatFavoritMeal(mealList) {
                             } else {
                                 display()
                                 mealListLoop(data);
+
                             }
                         })
                     } else {
@@ -533,6 +535,7 @@ function creatFavoritMeal(mealList) {
                 })
             i++;
             if (i === mealList.length) {
+
                 mealStar()
                 clearInterval(interval);
             }
@@ -571,6 +574,75 @@ function creatFavoritMeal(mealList) {
             </footer>
         </div>
     </div>`);
+            $(".meal-star").removeClass("far fa-star").addClass("fas fa-star save");
+        }
+    }
+}
+
+function creatFavoritdrink(drinkList) {
+    console.log(drinkList);
+    recipesColumn.textContent = "";
+    var i = 0;
+    var interval = setInterval(function() {
+        const url = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${drinkList[i]}`;
+        fetch(url)
+            .then(function(response) {
+                if (response.ok) {
+                    response.json().then(function(data) {
+                        console.log(data);
+                        if (!data.drinks) {
+                            displayErrorModal(drinkList[i]);
+                        } else {
+                            display()
+                            drinkListLoop(data);
+                        }
+                    })
+                } else {
+                    displayErrorModal(drinkList[i]);
+                }
+            })
+            .catch(function(error) {
+                displayAPIErrorModal();
+            })
+        i++;
+        if (i === drinkList.length) {
+            drinkStar()
+            clearInterval(interval);
+        }
+    }, 1000)
+
+    function display() {
+        // if there are less than 4 recipes, we want to center the cards on the screen 
+        if (favorite.drink.length < 4) {
+            $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
+        } else {
+            $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-multiline is-centered");
+        }
+
+
+    }
+
+    function drinkListLoop(data) {
+        for (var i = 0; i < data.drinks.length; i++) {
+            var recipeTitle = data.drinks[i].strDrink;
+            var recipeImage = data.drinks[i].strDrinkThumb;
+            $(recipesColumn).append(`<div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+            <div class="card-image has-text-centered px-6">
+                <img src="${recipeImage}" alt="${recipeTitle}">
+                <div class="top-right is-size-1-mobile"><i class="far fa-star drink-star" id="drink-star" data-title="${recipeTitle}"></i></div>
+            </div>
+            <div class="card-content">
+                <p class="title is-size-5">${recipeTitle}</p>
+            </div>
+            <footer class="card-footer">
+            <p class="card-footer-item">
+            <button class="button is-link is-light has-background-white drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
+            </p>
+            </footer>
+        </div>
+    </div>`);
+            $(".drink-star").removeClass("far fa-star").addClass("fas fa-star save");
         }
     }
 }
