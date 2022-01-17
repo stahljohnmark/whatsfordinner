@@ -500,7 +500,77 @@ if (favorite.meal.length === 0) {
 // event listeners for showing favorite meals and drinks
 document.getElementById("meal-favorite-star").addEventListener("click", function() {
     console.log(favorite.meal);
+    creatFavoritMeal(favorite.meal);
 });
 document.getElementById("drink-favorite-star").addEventListener("click", function() {
     console.log(favorite.drink);
 });
+
+function creatFavoritMeal(mealList) {
+    console.log(mealList);
+    recipesColumn.textContent = "";
+    var i = 0;
+    var interval = setInterval(function() {
+            const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${mealList[i]}`;
+            fetch(url)
+                .then(function(response) {
+                    if (response.ok) {
+                        response.json().then(function(data) {
+                            console.log(data);
+                            if (!data.meals) {
+                                displayErrorModal(mealList[i]);
+                            } else {
+                                display()
+                                mealListLoop(data);
+                            }
+                        })
+                    } else {
+                        displayErrorModal(mealList[i]);
+                    }
+                })
+                .catch(function(error) {
+                    displayAPIErrorModal();
+                })
+            i++;
+            if (i === mealList.length) {
+                mealStar()
+                clearInterval(interval);
+            }
+        }, 1000)
+        // for (i = 0; mealList.length; i++) {
+    function display() {
+        // if there are less than 4 recipes, we want to center the cards on the screen 
+        if (favorite.meal.length < 4) {
+            $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-centered");
+        } else {
+            $(recipesColumn).addClass("columns mt-5 is-8 is-variable is-multiline is-centered");
+        }
+
+
+    }
+
+
+    function mealListLoop(data) {
+        for (var i = 0; i < data.meals.length; i++) {
+            var recipeTitle = data.meals[i].strMeal;
+            var recipeImage = data.meals[i].strMealThumb;
+            $(recipesColumn).append(`<div class="column is-4-tablet is-3-desktop">
+        <div class="card">
+        
+            <div class="card-image has-text-centered px-6">
+            <img src="${recipeImage}" alt="${recipeTitle}">
+            <div class="top-right is-size-1-mobile"><i class="far fa-star meal-star" id="meal-star" data-title="${recipeTitle}"></i></div>
+            </div>
+            <div class="card-content">
+                <p class="title is-size-5">${recipeTitle}</p>
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">
+                    <button class="button is-link is-light has-background-white recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
+                </p>
+            </footer>
+        </div>
+    </div>`);
+        }
+    }
+}
