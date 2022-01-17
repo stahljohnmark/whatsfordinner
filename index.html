@@ -11,24 +11,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Sora&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/css/style.css">
-     
+
     <title>What's For Dinner</title>
 </head>
 
 <body>
     <header>
         <div class="columns is-centered is-centered-mobile is-vcentered">
-          <div class="column has-text-right-desktop has-text-right-tablet has-text-centered-mobile">
-            <figure class="image is-128x128 is-inline-block">
-                <img src="./assets/images/fork-knife.png" alt="fork and knife" />
-            </figure>
-          </div>
-          <div class="column has-text-centered-mobile">
-            <h1 class="title is-1 has-text-white">What's For Dinner</h1>
-          </div>
+            <div class="column has-text-right-desktop has-text-right-tablet has-text-centered-mobile">
+                <figure class="image is-128x128 is-inline-block">
+                    <img src="./assets/images/fork-knife.png" alt="fork and knife" />
+                </figure>
+            </div>
+            <div class="column has-text-centered-mobile">
+                <h1 class="title is-1 has-text-white">What's For Dinner</h1>
+            </div>
         </div>
     </header>
-    
+
 
     <!-- Top container -->
     <div class="topContainer">
@@ -36,6 +36,7 @@
         <!-- meal input -->
         <form class="input-container is-flex is-flex-direction-row" id="meal-form">
             <input type="text" class="meal-input" placeholder="Enter an ingredient for meal" id="meal-input">
+            <i class="far fa-star meal-favorite-star" id="meal-favorite-star"></i>
             <button type="submit" class="search-meal-btn" id="search-meal-btn">
                 <i class = "fas fa-search"></i>
             </button>
@@ -43,6 +44,7 @@
         <!-- drink input -->
         <form class="input-container is-flex is-flex-direction-row" id="drink-form">
             <input type="text" class="drink-input" placeholder="Enter an ingredient for drink" id="drink-input">
+            <i class="far fa-star drink-favorite-star" id="drink-favorite-star"></i>
             <button type="submit" class="search-drink-btn" id="search-drink-btn">
                 <i class = "fas fa-search"></i>
             </button>
@@ -61,43 +63,47 @@
     <div class="modal">
         <div class="modal-background"></div>
         <div class="modal-card">
-          <header class="modal-card-head" id="recipe-header">
-            <p class="modal-card-title recipe-title"></p>
-            <button class="delete" id="closetop" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-          <div class="content">
-              <div class="column has-text-centered">
-                <img class="recipe-img" height="200px" width="200px">
-              </div>
-                <h4 class="ingredients">Ingredients:</h4>
-                <ul class="ingredient-list"><!-- Ingredient list will go here --></ul>
-                <h4>Instructions:</h4>
-                <div>
-                    <p class="instructions"><!-- Instructions will go here --></p>
-                </div>
-          <div>  
-          </section>
-        </div>
-    </div>
-    <!-- Error Modal -->
-    <div class="modal" id="error-modal">
-        <div class="modal-background"></div>
-        <div class="modal-card">
-          <header class="modal-card-head" id="error-header">
-            <p class="modal-card-title error-title">Error</p>
-            <button class="delete" id="closetop" aria-label="close"></button>
-          </header>
-          <section class="modal-card-body">
-          <div class="content">
-                <h4 class="error-type"></h4>
-          <div>  
-          </section>
-        </div>
-    </div>
-    <!-- script -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src=" assets/js/script.js "></script>
+            <header class="modal-card-head" id="recipe-header">
+                <p class="modal-card-title recipe-title"></p>
+                <button class="delete" id="closetop" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <div class="content">
+                    <div class="column has-text-centered">
+                        <img class="recipe-img" height="200px" width="200px">
+                    </div>
+                    <h4 class="ingredients">Ingredients:</h4>
+                    <ul class="ingredient-list">
+                        <!-- Ingredient list will go here -->
+                    </ul>
+                    <h4>Instructions:</h4>
+                    <div>
+                        <p class="instructions">
+                            <!-- Instructions will go here -->
+                        </p>
+                    </div>
+                    <div>
+            </section>
+            </div>
+            </div>
+            <!-- Error Modal -->
+            <div class="modal" id="error-modal">
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                    <header class="modal-card-head" id="error-header">
+                        <p class="modal-card-title error-title">Error</p>
+                        <button class="delete" id="closetop" aria-label="close"></button>
+                    </header>
+                    <section class="modal-card-body">
+                        <div class="content">
+                            <h4 class="error-type"></h4>
+                            <div>
+                    </section>
+                    </div>
+                    </div>
+                    <!-- script -->
+                    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+                    <script src=" assets/js/script.js "></script>
 </body>
 
 </html>

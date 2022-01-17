@@ -11,7 +11,9 @@ header {
     font-family: 'Amatic SC';
 }
 
-h2, .modal-card-title, .content {
+h2,
+.modal-card-title,
+.content {
     font-family: 'Sora';
 }
 
@@ -38,6 +40,7 @@ h2, .modal-card-title, .content {
     border-radius: 0 50px 50px 0;
     cursor: url("../../assets/images/glass.cur"), pointer;
 }
+
 .search-meal-btn:hover,
 .search-drink-btn:hover {
     background-color: #6a94cc;
@@ -48,6 +51,16 @@ h2, .modal-card-title, .content {
     top: -2px;
     right: 54px;
     text-decoration: none;
+    color: gold
+}
+
+.drink-favorite-star,
+.meal-favorite-star {
+    height: 40px;
+    margin-top: 40px;
+    padding: 10px 10px 0 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     color: gold;
     cursor: pointer;
 }
@@ -60,13 +73,15 @@ h2, .modal-card-title, .content {
     background-color: #9DD2DC;
 }
 
-.recipe-button, .drink-button {
+.recipe-button,
+.drink-button {
     font-family: 'Sora';
     background-color: #9DD2DC;
     border: none;
 }
 
-.recipe-button:hover, .drink-button:hover {
+.recipe-button:hover,
+.drink-button:hover {
     color: #FFFFFF;
 }
 
