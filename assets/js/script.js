@@ -10,6 +10,8 @@ var modalBackground = document.querySelector(".modal-background");
 var modal = document.querySelector(".modal");
 var errorModal = document.getElementById("error-modal");
 var errorType = document.querySelector(".error-type");
+var recipe = "Recipe";
+var ingredient = "Ingredient";
 
 // The ingredients and amounts coming back from api were stored in seperated strings.  This function takes those
 // strings and puts them into an array of objects so we can iterate through them to display on the page.
@@ -193,6 +195,18 @@ var createMealModal = function(data) {
     modal.classList.add("is-active");
 }
 
+var displayErrorModal = function(item, query) {
+    $(errorType).text("");
+    $(errorType).text(`${item} ${query} not found.`);
+    errorModal.classList.add("is-active");
+}
+
+var displayAPIErrorModal = function() {
+    $(errorType).text("");
+    $(errorType).text(`Could not connect to API.`);
+    errorModal.classList.add("is-active");
+}
+
 // Makes a call the the api using the id of the recipe that was clicked to show that recipes info
 var displayMealRecipe = function(event) {
     event.preventDefault();
@@ -205,13 +219,11 @@ var displayMealRecipe = function(event) {
                     createMealModal(data);
                 });
             } else {
-                // To do remove console.log and display a modal here stating recipe was not found
-                console.log("Recipe not found!");
+                displayErrorModal(recipe, index);
             }
         })
         .catch(function(error) {
-            // To do remove console.log and display a modal stating unable to connect to The Meal Db
-            console.log("Unable to connect to The Meal Db");
+            displayAPIErrorModal();
         });
 
 };
@@ -239,13 +251,11 @@ var displayDrinkRecipe = function(event) {
                     createDrinkModal(data);
                 });
             } else {
-                // To do remove console.log and display a modal here stating recipe was not found
-                console.log("Recipe not found!");
+                displayErrorModal(recipe, index);
             }
         })
         .catch(function(error) {
-            // To do remove console.log and display a modal here stating unable to connect to the Cocktail Db
-            console.log("Unable to connect to The Cocktail Db");
+            displayAPIErrorModal();
         });
 }
 
@@ -275,7 +285,7 @@ var createFoodCard = function(data) {
             </div>
             <footer class="card-footer">
                 <p class="card-footer-item">
-                    <button class="button is-link is-light has-background-white recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
+                    <button class="button recipe-button" data-index="${data.meals[i].idMeal}">View Recipe</button>
                 </p>
             </footer>
         </div>
@@ -296,17 +306,6 @@ var displayFoodCards = function(data) {
     createFoodCard(data);
 }
 
-var displayErrorModal = function(query) {
-    $(errorType).text("");
-    $(errorType).text(`Ingredient ${query} not found.`);
-    errorModal.classList.add("is-active");
-}
-var displayAPIErrorModal = function() {
-    $(errorType).text("");
-    $(errorType).text(`Could not connect to API.`);
-    errorModal.classList.add("is-active");
-}
-
 // fetching meal api
 function mealSearch(query) {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${query}`;
@@ -316,13 +315,13 @@ function mealSearch(query) {
                 response.json().then(function(data) {
                     console.log(data);
                     if (!data.meals) {
-                        displayErrorModal(query);
+                        displayErrorModal(ingredient, query);
                     } else {
                         displayFoodCards(data);
                     }
                 })
             } else {
-                displayErrorModal(query);
+                displayErrorModal(ingredient, query);
             }
         })
         .catch(function(error) {
@@ -347,7 +346,7 @@ var createDrinkCard = function(data) {
             </div>
             <footer class="card-footer">
             <p class="card-footer-item">
-            <button class="button is-link is-light has-background-white drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
+            <button class="button drink-button" data-index="${data.drinks[i].idDrink}">View Recipe</button>
             </p>
             </footer>
         </div>
@@ -376,13 +375,13 @@ function drinkSearch(query) {
                 response.json().then(function(data) {
                     console.log(data);
                     if (!data.drinks) {
-                        displayErrorModal(query);
+                        displayErrorModal(ingredient, query);
                     } else {
                         displayDrinkCards(data);
                     }
                 })
             } else {
-                displayErrorModal(query);
+                displayErrorModal(ingredient, query);
             }
         })
         .catch(function(error) {

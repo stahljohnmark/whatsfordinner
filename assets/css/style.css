@@ -2,11 +2,19 @@
     box-sizing: border-box;
 }
 
-body {
-    font-weight: 300;
-    font-size: 1.05rem;
-    line-height: 1.6;
-    font-family: 'Poppins', sans-serif;
+header {
+    background-color: #5C5B5B;
+    padding: 0px 15px;
+}
+
+.title {
+    font-family: 'Amatic SC';
+}
+
+h2,
+.modal-card-title,
+.content {
+    font-family: 'Sora';
 }
 
 .topContainer {
@@ -35,7 +43,7 @@ body {
 
 .search-meal-btn:hover,
 .search-drink-btn:hover {
-    background-color: brown;
+    background-color: #6a94cc;
 }
 
 .top-right {
@@ -48,11 +56,39 @@ body {
 
 .drink-favorite-star,
 .meal-favorite-star {
-    display: none;
     height: 40px;
     margin-top: 40px;
     padding: 10px 10px 0 10px;
-    color: gold;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+    color: gold;
+    cursor: pointer;
+}
+
+.top-right:hover {
+    font-size: 2em;
+}
+
+.card-footer {
+    background-color: #9DD2DC;
+}
+
+.recipe-button,
+.drink-button {
+    font-family: 'Sora';
+    background-color: #9DD2DC;
+    border: none;
+}
+
+.recipe-button:hover,
+.drink-button:hover {
+    color: #FFFFFF;
+}
+
+#recipe-header {
+    background-color: #9DD2DC;
+}
+
+#error-header {
+    background-color: #E82F1C;
 }
