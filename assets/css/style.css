@@ -60,13 +60,13 @@ h2, .modal-card-title, .content {
     background-color: #9DD2DC;
 }
 
-.recipe-button {
+.recipe-button, .drink-button {
     font-family: 'Sora';
     background-color: #9DD2DC;
     border: none;
 }
 
-.recipe-button:hover {
+.recipe-button:hover, .drink-button:hover {
     color: #FFFFFF;
 }
 
