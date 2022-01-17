@@ -11,7 +11,7 @@ header {
     font-family: 'Amatic SC';
 }
 
-h2 {
+h2, .modal-card-title, .content {
     font-family: 'Sora';
 }
 
@@ -50,8 +50,6 @@ h2 {
     text-decoration: none;
     color: gold;
     cursor: pointer;
-    
-
 }
 
 .top-right:hover {
@@ -70,4 +68,8 @@ h2 {
 
 .recipe-button:hover {
     color: #FFFFFF;
+}
+
+.modal-card-head {
+    background-color: #9DD2DC;
 }
