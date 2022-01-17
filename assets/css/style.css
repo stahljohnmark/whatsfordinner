@@ -70,6 +70,10 @@ h2, .modal-card-title, .content {
     color: #FFFFFF;
 }
 
-.modal-card-head {
+#recipe-header {
     background-color: #9DD2DC;
+}
+
+#error-header {
+    background-color: #E82F1C;
 }
