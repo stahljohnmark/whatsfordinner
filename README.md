@@ -1,5 +1,47 @@
 # whatsfordinner
-Story
-Tammy wasn’t much of a cook, she knew her husband loved to make new and exciting meals and drinks. 
-For their anniversary she decided even if she didn’t know her way around the kitchen she could still surprise her husband by having all the ingredients needed for whatever he wanted to make. 
-She commissioned an app to be made so whatever protein or alcohol they had in the house could be searched and a list of meals, cocktails, and most importantly ingredients she could save and get to prepare for the meal.
+## User Story
+* AS A user
+* I WANT to get recipe for meal and drink
+* SO THAT I can preapr meal and drink with my ingredients
+## Acceptance Criteria
+* GIVEN a food recipe dashboard with form inputs
+* WHEN I search for a meal by ingredients
+* THEN I am presented with  meal ingredients and recipe
+* WHEN I search for a drink by ingredients
+* THEN I am presented with  drink ingredients and recipe
+
+* WHEN I click on view recipe
+* THEN I present with pop up modal for recipe
+
+* WHEN I view food recipe
+* THEN I am presented with all food ingredients and  recipes
+
+* WHEN I view drink recipe
+* THEN I am presented with all drink ingredients and  recipes
+
+* THERE is a star on each meal and drink card for save meal or drink
+* WHEN I click on star
+* THEN save meal and drink to local storage
+
+* WHEN dbclick on star 
+* THEN remove that food or drink from favarit meal or drink 
+
+* WHEN there is a meal or drink saved in local storage
+* THEN display star for favorit meals and drinks
+
+* WHEN click on favorit meals or drinks star
+* THEN display all favorits meals or drink
+
+## Mock-Up
+* The following image shows the web application's appearance and functionality:
+<img width="958" alt="Screen Shot 2022-01-17 at 8 49 45 PM" src="https://user-images.githubusercontent.com/94582549/149872896-adaf825c-01db-4587-88a4-5c133e94ecb6.png">
+
+<img width="956" alt="Screen Shot 2022-01-17 at 8 49 55 PM" src="https://user-images.githubusercontent.com/94582549/149872927-2371af82-8da2-442f-87d2-d4fcb08f3fc1.png">
+
+<img width="955" alt="Screen Shot 2022-01-17 at 8 50 08 PM" src="https://user-images.githubusercontent.com/94582549/149872955-bf610216-bd7c-4c95-86d9-97269ba9531c.png">
+
+
+
+To vist this what is for dinner , go to:
+https://stahljohnmark.github.io/whatsfordinner/
+
