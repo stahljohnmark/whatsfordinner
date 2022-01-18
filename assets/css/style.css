@@ -2,9 +2,25 @@
     box-sizing: border-box;
 }
 
+html {
+    background-image: url('../images/app-backgound.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: repeat;
+    height: 100vh;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    color: whitesmoke;
+}
+
+h2 {
+    color: white
+}
+
 header {
-    background-color: #5C5B5B;
-    padding: 0px 15px;
+    padding: 20px 15px;
 }
 
 .title {
@@ -63,6 +79,7 @@ h2,
     border-bottom: 1px solid black;
     color: gold;
     cursor: pointer;
+    background-color: white;
 }
 
 .top-right:hover {
