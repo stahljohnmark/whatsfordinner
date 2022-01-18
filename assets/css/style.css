@@ -109,8 +109,9 @@ h2,
     background-color: #E82F1C;
 }
 
-@media all and (max-width: 768px) {
+
+/* @media all and (max-width: 768px) {
     body {
         background-image: url('../images/background-mobile.jpg');
     }
-}
+} */

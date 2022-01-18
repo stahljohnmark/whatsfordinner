@@ -1,8 +1,8 @@
-# whatsfordinner
+# WHAT IS FOR DINNER
 ## User Story
 * AS A user
 * I WANT to get recipe for meal and drink
-* SO THAT I can preapr meal and drink with my ingredients
+* SO THAT I can prepare meal and drink with my ingredients
 ## Acceptance Criteria
 * GIVEN a food recipe dashboard with form inputs
 * WHEN I search for a meal by ingredients
@@ -11,7 +11,7 @@
 * THEN I am presented with  drink ingredients and recipe
 
 * WHEN I click on view recipe
-* THEN I present with pop up modal for recipe
+* THEN I presented with pop up modal for recipe
 
 * WHEN I view food recipe
 * THEN I am presented with all food ingredients and  recipes
@@ -23,14 +23,21 @@
 * WHEN I click on star
 * THEN save meal and drink to local storage
 
-* WHEN dbclick on star 
-* THEN remove that food or drink from favarit meal or drink 
+* WHEN double click on star 
+* THEN remove that food or drink from favorite meal or drink 
 
 * WHEN there is a meal or drink saved in local storage
-* THEN display star for favorit meals and drinks
+* THEN display star for favorite meals and drinks
 
-* WHEN click on favorit meals or drinks star
-* THEN display all favorits meals or drink
+* WHEN I click on favorite meals or drinks star
+* THEN display all favorites meals or drink
+
+## Languages & Frameworks
+* JavaScript
+* JQuery
+* HTML
+* CSS
+* Bulma
 
 ## Mock-Up
 * The following image shows the web application's appearance and functionality:
