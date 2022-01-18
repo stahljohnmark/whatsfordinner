@@ -394,7 +394,7 @@ document.getElementById("meal-form").addEventListener("submit", function(event) 
     event.preventDefault();
     mealSearch(mealInput.value);
     mealStar()
-
+    mealInput.value = "";
 });
 
 // EventListener for drink input
@@ -402,7 +402,7 @@ document.getElementById("drink-form").addEventListener("submit", function(event)
     event.preventDefault();
     drinkSearch(drinkInput.value);
     drinkStar();
-
+    drinkInput.value = "";
 });
 
 // when view recipe button is clicked it will call the displayMealRecipe function to display the modal

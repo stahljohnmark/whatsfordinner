@@ -2,9 +2,13 @@
     box-sizing: border-box;
 }
 
+body {
+    background-image: url("assets/css/images/app-backgound.jpg");
+}
+
 header {
     background-color: #5C5B5B;
-    padding: 0px 15px;
+    padding-top: 25px;
 }
 
 .title {
