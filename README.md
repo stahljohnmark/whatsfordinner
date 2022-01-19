@@ -1,8 +1,4 @@
 # WHAT IS FOR DINNER
-## User Story
-* AS A user
-* I WANT to get recipe for meal and drink
-* SO THAT I can prepare meal and drink with my ingredients
 ## Acceptance Criteria
 * GIVEN a food recipe dashboard with form inputs
 * WHEN I search for a meal by ingredients
