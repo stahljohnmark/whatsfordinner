@@ -1,7 +1,7 @@
 # What's For Dinner
 
 ## Description
-The What's for Dinner application allows a user to search for recipes based on ingredients.  For instance, if a user wants to make something with rice, all they need to do is enter "rice" into the form input and hit the search icon.  Recipe cards will display with the picture of the item and a link to view the recipe information such as a list of ingredients, measurements, as well as the instructions on how to prepare it.  The What's for Dinner application solves the problem of ingredients spoiling before being used.  This will help to eliminate food waste and allow the user to spend less time at the grocery store.  The user is also able to save the recipes to a list of favorite recipes by clicking a star icon on the recipe card.  Once a recipe is added to the favorites list, the favorited recipes can be viewed by clicking a star icon on the form.
+For instance, if a user wants to make something with rice, all they need to do is enter "rice" into the form input and hit the search icon.  Recipe cards will display with the picture of the item and a link to view the recipe information such as a list of ingredients, measurements, as well as the instructions on how to prepare it.  The What's for Dinner application solves the problem of ingredients spoiling before being used.  This will help to eliminate food waste and allow the user to spend less time at the grocery store.  The user is also able to save the recipes to a list of favorite recipes by clicking a star icon on the recipe card.  Once a recipe is added to the favorites list, the favorited recipes can be viewed by clicking a star icon on the form.
 
 ## Languages & Frameworks
 * JavaScript
@@ -20,6 +20,5 @@ The What's for Dinner application allows a user to search for recipes based on i
 
 
 
-To vist What's For Dinner , go to:
+To visit What's For Dinner, go to:
 https://stahljohnmark.github.io/whatsfordinner/
-
