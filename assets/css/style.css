@@ -1,0 +1,134 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    background-image: url('../images/app-backgound.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: repeat;
+    height: 100vh;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    color: whitesmoke;
+}
+
+h2 {
+    color: white
+}
+
+header {
+    padding: 20px 15px;
+}
+
+h2 {
+    color: white
+}
+
+html {
+    background-image: url('../images/app-backgound.jpg');
+    background-size: cover;
+    box-sizing: border-box;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+    font-family: 'Rubik', sans-serif;
+    color: whitesmoke;
+    background-repeat: repeat;
+}
+
+.title {
+    font-family: 'Amatic SC';
+}
+
+h2,
+.modal-card-title,
+.content {
+    font-family: 'Sora';
+}
+
+.topContainer {
+    text-align: center;
+    margin: 10% 20% 0 20%;
+}
+
+.meal-input,
+.drink-input {
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 50px 0 0 50px;
+    border: 1px solid;
+    height: 40px;
+    padding-left: 20px;
+}
+
+.search-meal-btn,
+.search-drink-btn {
+    height: 40px;
+    margin-top: 40px;
+    border: 1px solid;
+    border-radius: 0 50px 50px 0;
+    cursor: url("../../assets/images/glass.cur"), pointer;
+}
+
+.search-meal-btn:hover,
+.search-drink-btn:hover {
+    background-color: #6a94cc;
+}
+
+.top-right {
+    position: absolute;
+    top: -2px;
+    right: 54px;
+    text-decoration: none;
+    color: gold
+}
+
+.drink-favorite-star,
+.meal-favorite-star {
+    height: 40px;
+    margin-top: 40px;
+    padding: 10px 10px 0 10px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    color: gold;
+    cursor: pointer;
+    background-color: white;
+}
+
+.top-right:hover {
+    font-size: 2em;
+}
+
+.card-footer {
+    background-color: #9DD2DC;
+}
+
+.recipe-button,
+.drink-button {
+    font-family: 'Sora';
+    background-color: #9DD2DC;
+    border: none;
+}
+
+.recipe-button:hover,
+.drink-button:hover {
+    color: #FFFFFF;
+}
+
+#recipe-header {
+    background-color: #9DD2DC;
+}
+
+#error-header {
+    background-color: #E82F1C;
+}
+
+
+/* @media all and (max-width: 768px) {
+    body {
+        background-image: url('../images/background-mobile.jpg');
+    }
+} */
