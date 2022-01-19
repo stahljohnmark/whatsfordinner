@@ -1,36 +1,8 @@
-# whatsfordinner
-## User Story
-* AS A user
-* I WANT to get recipe for meal and drink
-* SO THAT I can preapr meal and drink with my ingredients
-## Acceptance Criteria
-* GIVEN a food recipe dashboard with form inputs
-* WHEN I search for a meal by ingredients
-* THEN I am presented with  meal ingredients and recipe
-* WHEN I search for a drink by ingredients
-* THEN I am presented with  drink ingredients and recipe
+# What's For Dinner
 
-* WHEN I click on view recipe
-* THEN I present with pop up modal for recipe
+## Description
+The What's for Dinner application allows a user to search for recipes based on ingredients.  For instance, if a user wants to make something with rice, all they need to do is enter "rice" into the form input and hit the search icon.  Recipe cards will display with the picture of the item and a link to view the recipe information such as a list of ingredients, measurements, as well as the instructions on how to prepare it.  The What's for Dinner application solves the problem of ingredients spoiling before being used.  This will help to eliminate food waste and allow the user to spend less time at the grocery store.  The user is also able to save the recipes to a list of favorite recipes by clicking a star icon on the recipe card.  Once a recipe is added to the favorites list, the favorited recipes can be viewed by clicking a star icon on the form.
 
-* WHEN I view food recipe
-* THEN I am presented with all food ingredients and  recipes
-
-* WHEN I view drink recipe
-* THEN I am presented with all drink ingredients and  recipes
-
-* THERE is a star on each meal and drink card for save meal or drink
-* WHEN I click on star
-* THEN save meal and drink to local storage
-
-* WHEN dbclick on star 
-* THEN remove that food or drink from favarit meal or drink 
-
-* WHEN there is a meal or drink saved in local storage
-* THEN display star for favorit meals and drinks
-
-* WHEN click on favorit meals or drinks star
-* THEN display all favorits meals or drink
 
 ## Mock-Up
 * The following image shows the web application's appearance and functionality:
